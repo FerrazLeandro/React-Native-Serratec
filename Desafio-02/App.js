@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Image, ScrollView } from 'react-native';
 import Foto from './assets/Ferraz.png'
 import Olho from 'react-native-vector-icons/SimpleLineIcons'
 import Interrogacao from 'react-native-vector-icons/SimpleLineIcons'
@@ -9,6 +9,10 @@ import Celular from 'react-native-vector-icons/Feather'
 import Transferir from 'react-native-vector-icons/MaterialCommunityIcons'
 import Depositar from 'react-native-vector-icons/MaterialCommunityIcons'
 import Pix from 'react-native-vector-icons/MaterialCommunityIcons'
+import Transfer from 'react-native-vector-icons/MaterialIcons'
+import Cifrao from 'react-native-vector-icons/MaterialIcons'
+import Compras from 'react-native-vector-icons/SimpleLineIcons'
+import Futebol from 'react-native-vector-icons/FontAwesome5'
 
 
 
@@ -41,66 +45,93 @@ export default function App() {
           <Text style={styles.textoSaldo}>Conta</Text>
           <Seta name='arrow-right' style={styles.iconeSaldo}/>
         </View>
-        <Text style={styles.textoSaldo}>R$: 0,00</Text>
+        <Text style={styles.textoSaldo}>R$ 0,00</Text>
       </View>
 
       {/* Funcionalidades */}
       <View style={styles.funcionalidadesView}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={styles.funcionalidades}>
-          <View style={styles.funcionalidadesIcones}>
-              <Pix name='bank-transfer' style={styles.iconesHeader}/>
+          <View style={styles.funcionalidadesCard}>
+              <Pix name='bank-transfer' style={styles.funcionalidadesIcones}/>
           </View>
           <View style={styles.funcionalidadesTexto}>
-            <Text style={styles.textoSaldo}>Área Pix</Text>
+            <Text style={styles.funcionalidadesTexto}>Área Pix</Text>
           </View>
         </View>
         <View style={styles.funcionalidades}>
-          <View style={styles.funcionalidadesIcones}>
-              <CodigoBarras name='barcode' style={styles.iconesHeader}/>
+          <View style={styles.funcionalidadesCard}>
+              <CodigoBarras name='barcode' style={styles.funcionalidadesIcones}/>
           </View>
           <View style={styles.funcionalidadesTexto}>
-            <Text style={styles.textoSaldo}>Pagar</Text>
+            <Text style={styles.funcionalidadesTexto}>Pagar</Text>
           </View>
         </View>
         <View style={styles.funcionalidades}>
-          <View style={styles.funcionalidadesIcones}>
-          <Transferir name='bank-transfer-out' style={styles.iconesHeader}/>
+          <View style={styles.funcionalidadesCard}>
+          <Transferir name='bank-transfer-out' style={styles.funcionalidadesIcones}/>
           </View>
           <View style={styles.funcionalidadesTexto}>
-            <Text style={styles.textoSaldo}>Transferir</Text>
+            <Text style={styles.funcionalidadesTexto}>Transferir</Text>
           </View>
         </View>
         <View style={styles.funcionalidades}>
-          <View style={styles.funcionalidadesIcones}>
-              <Depositar name='bank-transfer-in' style={styles.iconesHeader}/>
+          <View style={styles.funcionalidadesCard}>
+              <Depositar name='bank-transfer-in' style={styles.funcionalidadesIcones}/>
           </View>
           <View style={styles.funcionalidadesTexto}>
-            <Text style={styles.textoSaldo}>Depositar</Text>
+            <Text style={styles.funcionalidadesTexto}>Depositar</Text>
           </View>
         </View>
         <View style={styles.funcionalidades}>
-          <View style={styles.funcionalidadesIcones}>
-              <Celular name='smartphone' style={styles.iconesHeader}/>
+          <View style={styles.funcionalidadesCard}>
+              <Celular name='smartphone' style={styles.funcionalidadesIcones}/>
           </View>
           <View style={styles.funcionalidadesTexto}>
-            <Text style={styles.textoSaldo}>Recarga de Celular</Text>
+            <Text style={styles.funcionalidadesTexto}>Recarga</Text>
           </View>
         </View>
+      </ScrollView>
       </View>
-      <View style={styles.container4}>
-      <Text style={styles.texto}>Meus cartões</Text>
+
+      {/* Meus cartões */}
+      <View style={styles.cartoes}>
+      <Celular name='smartphone' style={styles.iconeCartoes}/>
+      <Text style={styles.textoCartoes}>Meus cartões</Text>
 
       </View>
-      <View style={styles.container5}>
-      <Text style={styles.texto}>Mensagens</Text>
+
+      {/* Novidades */}
+      <View style={styles.novidades}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={styles.novidadesCard}>
+            <Text style={styles.texto}>Chegou o débito automático no fechamento da fatura</Text>
+          </View>
+          <View style={styles.novidadesCard}>
+            <Text style={styles.texto}>Concorra a premios com o Nubank</Text>
+          </View>
+        </ScrollView>
 
       </View>
-      <View style={styles.container6}>
-      <Text style={styles.texto}>Cartão de crédito</Text>
 
+      {/* Cartão de crédito */}
+      <View style={styles.credito}>
+        <View style={styles.saldoMenu}>
+          <Text style={styles.creditoTitulo}>Cartão de crédito</Text>
+          <Seta name='arrow-right' style={styles.iconeSaldo}/>
+        </View>
+        <Text style={styles.creditoTexto}>Fatura atual</Text>
+        <Text style={styles.creditoTitulo}>R$ 199,99</Text>
+        <Text style={styles.creditoTexto}>Limite disponível de R$ 999,99</Text>
+        <Text style={styles.creditoParcelamento}>Parcelar compras</Text>
       </View>
+
+      {/* Footer */}
       <View style={styles.footer}>
-      <Text style={styles.texto}>Footer</Text>
+      <Transfer name='swap-vert' style={styles.funcionalidadesIcones}/>
+      <Cifrao name='attach-money' style={styles.funcionalidadesIcones}/>
+      <Compras name='bag' style={styles.funcionalidadesIcones}/>
+      <Futebol name='futbol' style={styles.funcionalidadesIcones}/>
 
       </View>
     </View>
@@ -112,10 +143,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-  },
-  textoNome: {
-    fontSize: 14,
-    color: '#fff',
   },
   header: {
     height: '15%',
@@ -136,7 +163,6 @@ const styles = StyleSheet.create({
     height: 50,
     marginRight: 15,
     size: 20,
-    color: "#000",
     marginBottom: 30,
   },
   headerIcones: {
@@ -149,8 +175,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     margin: 15
   },
+  textoNome: {
+    fontSize: 14,
+    color: '#fff',
+  },
   saldo: {
-    height: '15%',
+    height: '13%',
     width: '100%',
     padding: 15,
   },
@@ -174,37 +204,86 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row'
   }, 
-  funcionalidadesIcones: {
+  funcionalidadesCard: {
     width: 65,
     height: 65,
     margin: 10,
     borderRadius: '100%',
-    backgroundColor: 'silver',
+    backgroundColor: '#f0f1f5',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },
-  funcionalidadesTexto : {
+  funcionalidadesIcones: {
+    fontSize: 34,
+  },
+  funcionalidadesTexto: {
     fontSize: 15,
     alignItems: 'center',
     justifyContent: 'center'
   },
-  container4: {
-    height: '15%',
-    width: '100%',
+  cartoes: {
+    height: '20',
+    width: '90%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    margin: 25,
+    backgroundColor: '#f0f1f5',
+    borderRadius: 12,
   },
-  container5: {
+  iconeCartoes: {
+    fontSize: 24,
+  },
+  textoCartoes: {
+    margin: 15,
+    fontWeight: '600'
+  },
+  novidades: {
     height: '10%',
-    width: '100%',
+    width: '90%',
+    flexDirection: 'row',
   },
-  container6: {
+  novidadesCard: {
+    borderRadius: 10,
+    backgroundColor: '#f0f1f5',
+    width: 250,
+    height: 80,
+    padding: 20,
+    marginRight: 15
+  },
+  credito: {
     height: '20%',
-    width: '100%',
+    width: '90%',
+  },
+  creditoTitulo: {
+    fontWeight: '600',
+    fontSize: 18,
+  },
+  creditoTexto: {
+    color: 'gray',
+    fontWeight: '600',
+    marginBottom: 5,
+    marginTop: 5
+  },  
+  creditoParcelamento: {
+    width: 180,
+    padding: 15,
+    marginTop: 20,
+    backgroundColor: '#f0f1f5',
+    borderRadius: 30,
+    fontWeight: '700',
+    fontSize: 18,
   },
   footer: {
-    height: '10%',
+    padding: 15,
+    height: 70,
     width: '100%',
+    position: 'fixed',
+    bottom: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderWidth: 1,
+    borderColor: "thistle",
   }
-  
-
 });
