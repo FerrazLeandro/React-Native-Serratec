@@ -128,10 +128,10 @@ export default function App() {
 
       {/* Footer */}
       <View style={styles.footer}>
-      <Transfer name='swap-vert' style={styles.funcionalidadesIcones}/>
-      <Cifrao name='attach-money' style={styles.funcionalidadesIcones}/>
-      <Compras name='bag' style={styles.funcionalidadesIcones}/>
-      <Futebol name='futbol' style={styles.funcionalidadesIcones}/>
+      <Transfer name='swap-vert' style={styles.footerIcones}/>
+      <Cifrao name='attach-money' style={styles.footerIcones}/>
+      <Compras name='bag' style={styles.footerIcones}/>
+      <Futebol name='futbol' style={styles.footerIcones}/>
 
       </View>
     </View>
@@ -285,5 +285,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderWidth: 1,
     borderColor: "thistle",
+  },
+  footerIcones: {
+    fontSize: 34,
+    color: 'gray',
   }
 });
