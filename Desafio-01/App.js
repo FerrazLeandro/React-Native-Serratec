@@ -77,6 +77,8 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "skyblue",
     justifyContent: "flex-end",
+    position: 'fixed',
+    bottom: 0,
 },
 
 });
